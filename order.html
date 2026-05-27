@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказать мероприятие | StudioKiss</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="plugins/ga-analytics.js"></script>
+    <script src="plugins/seo-plugin.js"></script>
+    <style>
+        .order-page-form {
+            max-width: 600px;
+            margin: 20px auto 30px auto;
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 20px;
+        }
+        .order-page-form .order-form {
+            max-width: 100%;
+        }
+        .form-note {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--dark-gray);
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">StudioKiss</div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html">О нас</a>
+            <a href="services.html">Услуги</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="order.html">Заказать</a>
+            <a href="interior.html">Интерьерные студии</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <div class="header-contacts">
+            <a href="tel:+78121234567">+7 (812) 123-45-67</a>
+            <a href="mailto:info@studiokiss.fi">info@studiokiss.fi</a>
+        </div>
+        <div class="socials">
+            <a href="#">VK</a>
+            <a href="#">TG</a>
+            <a href="#">YT</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Заказать мероприятие</h1>
+            <p style="text-align: center; margin-bottom: 20px;">Оставьте заявку, и мы поможем организовать идеальное событие</p>
+            
+            <div class="order-page-form">
+                <form class="order-form" id="orderPageForm">
+                    <input type="text" placeholder="Название мероприятия" required>
+                    <input type="text" placeholder="Ваше ФИО" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="date" required>
+                    <button type="submit">Отправить заявку</button>
+                </form>
+                <div class="form-note">
+                    Мы свяжемся с вами в течение 15 минут
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-column">
+                <nav class="footer-nav">
+                    <a href="index.html">Главная</a>
+                    <a href="about.html">О нас</a>
+                    <a href="services.html">Услуги</a>
+                    <a href="gallery.html">Галерея</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="interior.html">Интерьерные студии</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+            </div>
+            <div class="footer-column">
+                <p class="requisites">
+                    ООО "StudioKiss"<br>
+                    ИНН 7812345678<br>
+                    ОГРН 1234567890123<br>
+                    г. Санкт-Петербург, ул. Фотографов, д. 10
+                </p>
+            </div>
+            <div class="footer-column">
+                <div class="socials">
+                    <a href="#">VK</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">YouTube</a>
+                </div>
+                <p class="copyright">© 2026 StudioKiss</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const orderPageForm = document.getElementById('orderPageForm');
+        if (orderPageForm) {
+            orderPageForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const inputs = this.querySelectorAll('input');
+                let isEmpty = false;
+                for (let i = 0; i < inputs.length; i++) {
+                    if (!inputs[i].value.trim()) isEmpty = true;
+                }
+                if (isEmpty) {
+                    alert('Пожалуйста, заполните все поля формы');
+                    return;
+                }
+                alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>

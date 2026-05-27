@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши услуги | StudioKiss</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="plugins/ga-analytics.js"></script>
+    <script src="plugins/seo-plugin.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">StudioKiss</div>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html">О нас</a>
+            <a href="services.html">Услуги</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="order.html">Заказать</a>
+            <a href="interior.html">Интерьерные студии</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <div class="header-contacts">
+            <a href="tel:+78121234567">+7 (812) 123-45-67</a>
+            <a href="mailto:info@studiokiss.fi">info@studiokiss.fi</a>
+        </div>
+        <div class="socials">
+            <a href="#">VK</a>
+            <a href="#">TG</a>
+            <a href="#">YT</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Наши услуги</h1>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">Все</button>
+                <button class="filter-btn" data-category="portrait">Портрет</button>
+                <button class="filter-btn" data-category="product">Предметная</button>
+                <button class="filter-btn" data-category="event">Мероприятия</button>
+                <button class="filter-btn" data-category="fashion">Fashion</button>
+            </div>
+            
+            <div class="services-list" id="servicesList"></div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-column">
+                <nav class="footer-nav">
+                    <a href="index.html">Главная</a>
+                    <a href="about.html">О нас</a>
+                    <a href="services.html">Услуги</a>
+                    <a href="gallery.html">Галерея</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="interior.html">Интерьерные студии</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+            </div>
+            <div class="footer-column">
+                <p class="requisites">
+                    ООО "StudioKiss"<br>
+                    ИНН 7812345678<br>
+                    ОГРН 1234567890123<br>
+                    г. Санкт-Петербург, ул. Фотографов, д. 10
+                </p>
+            </div>
+            <div class="footer-column">
+                <div class="socials">
+                    <a href="#">VK</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">YouTube</a>
+                </div>
+                <p class="copyright">© 2026 StudioKiss</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const servicesData = [
+            { id: 1, name: "Портретная съемка", price: "3 500 ₽", description: "Индивидуальная портретная съемка в студии или на локации.", category: "portrait", img: "images/services/portrait-full.jpg" },
+            { id: 2, name: "Портрет + стилист", price: "5 500 ₽", description: "Портретная съемка с профессиональным стилистом.", category: "portrait", img: "images/services/beauty-full.jpg" },
+            { id: 3, name: "Предметная съемка", price: "4 000 ₽", description: "Съемка товаров, украшений, косметики.", category: "product", img: "images/services/product-full.jpg" },
+            { id: 4, name: "Предметка + упаковка", price: "6 000 ₽", description: "Предметная съемка с созданием композиции.", category: "product", img: "images/services/product-service.jpg" },
+            { id: 5, name: "Съемка мероприятий", price: "8 000 ₽", description: "2 часа съемки вашего события.", category: "event", img: "images/services/event-full.png" },
+            { id: 6, name: "Свадебная съемка", price: "15 000 ₽", description: "Full-day съемка свадьбы, 300+ фото.", category: "event", img: "images/services/event-service.png" },
+            { id: 7, name: "Fashion съемка", price: "7 000 ₽", description: "Студийная fashion съемка с визажистом.", category: "fashion", img: "images/services/fashion-full.png" },
+            { id: 8, name: "Lookbook", price: "10 000 ₽", description: "Съемка коллекции одежды для Lookbook.", category: "fashion", img: "images/gallery/gallery-4.jpg" },
+            { id: 9, name: "Семейная съемка", price: "6 000 ₽", description: "Семейная фотосессия на природе или в студии.", category: "portrait", img: "images/services/family-full.jpg" }
+        ];
+
+        let currentCategory = "all";
+        let currentPage = 1;
+        const itemsPerPage = 4;
+
+        function renderServices() {
+            let filtered = servicesData;
+            if (currentCategory !== "all") {
+                filtered = servicesData.filter(function(s) {
+                    return s.category === currentCategory;
+                });
+            }
+            
+            const totalPages = Math.ceil(filtered.length / itemsPerPage);
+            const start = (currentPage - 1) * itemsPerPage;
+            const paginated = filtered.slice(start, start + itemsPerPage);
+            
+            const container = document.getElementById("servicesList");
+            if (!container) return;
+            
+            let html = "";
+            for (let i = 0; i < paginated.length; i++) {
+                const service = paginated[i];
+                html += '<div class="service-item">';
+                html += '<img src="' + service.img + '" alt="' + service.name + '">';
+                html += '<h3>' + service.name + '</h3>';
+                html += '<p class="price">' + service.price + '</p>';
+                html += '<p class="description">' + service.description + '</p>';
+                html += '</div>';
+            }
+            container.innerHTML = html;
+            
+            const paginationContainer = document.getElementById("pagination");
+            if (!paginationContainer) return;
+            
+            if (totalPages <= 1) {
+                paginationContainer.innerHTML = "";
+                return;
+            }
+            
+            let paginationHtml = "";
+            for (let i = 1; i <= totalPages; i++) {
+                const activeClass = (i === currentPage) ? 'active' : '';
+                paginationHtml += '<button class="page-btn ' + activeClass + '" data-page="' + i + '">' + i + '</button>';
+            }
+            paginationContainer.innerHTML = paginationHtml;
+            
+            const pageBtns = document.querySelectorAll(".page-btn");
+            for (let j = 0; j < pageBtns.length; j++) {
+                pageBtns[j].addEventListener("click", function() {
+                    currentPage = parseInt(this.getAttribute("data-page"));
+                    renderServices();
+                });
+            }
+        }
+
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        for (let k = 0; k < filterBtns.length; k++) {
+            filterBtns[k].addEventListener("click", function() {
+                for (let m = 0; m < filterBtns.length; m++) {
+                    filterBtns[m].classList.remove("active");
+                }
+                this.classList.add("active");
+                currentCategory = this.getAttribute("data-category");
+                currentPage = 1;
+                renderServices();
+            });
+        }
+
+        renderServices();
+    </script>
+</body>
+</html>

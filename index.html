@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudioKiss | Фотостудия в Санкт-Петербурге</title>
+    
+    <meta name="description" content="Профессиональная фотостудия StudioKiss в Санкт-Петербурге. Аренда студии, услуги фотографа, организация мероприятий.">
+    <meta name="keywords" content="фотостудия спб, студия kiss, аренда студии, фотограф">
+    <meta name="author" content="StudioKiss">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <script src="plugins/ga-analytics.js"></script>
+    <script src="plugins/seo-plugin.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">StudioKiss</div>
+        
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html">О нас</a>
+            <a href="services.html">Услуги</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="order.html">Заказать</a>
+            <a href="interior.html">Интерьерные студии</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        
+        <div class="header-contacts">
+            <a href="tel:+78121234567">+7 (812) 123-45-67</a>
+            <a href="mailto:info@studiokiss.fi">info@studiokiss.fi</a>
+        </div>
+        
+        <div class="socials">
+            <a href="#">VK</a>
+            <a href="#">TG</a>
+            <a href="#">YT</a>
+        </div>
+    </header>
+
+    <!-- ЗАКАЗАТЬ МЕРОПРИЯТИЕ -->
+    <section class="order-section">
+        <div class="container">
+            <h2>Заказать мероприятие</h2>
+            <form class="order-form" id="orderForm">
+                <input type="text" placeholder="Название мероприятия" required>
+                <input type="text" placeholder="Ваше ФИО" required>
+                <input type="tel" placeholder="Телефон" required>
+                <input type="email" placeholder="Email" required>
+                <input type="date" required>
+                <button type="submit">Отправить заявку</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ГАЛЕРЕЯ РАБОТ -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2>Галерея работ</h2>
+            <div class="slider-container">
+                <div class="slider" id="gallerySlider">
+                    <img src="images/gallery/gallery-1.jpg" alt="Портретная съемка">
+                    <img src="images/gallery/gallery-2.jpg" alt="Предметная съемка">
+                    <img src="images/gallery/gallery-3.jpg" alt="Love-story">
+                    <img src="images/gallery/gallery-4.jpg" alt="Fashion съемка">
+                </div>
+                <button class="slider-btn prev" onclick="slideGallery(-1)">←</button>
+                <button class="slider-btn next" onclick="slideGallery(1)">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- БЫСТРЫЕ ССЫЛКИ -->
+    <section class="quick-links">
+        <div class="container">
+            <a href="about.html" class="quick-link">О нас</a>
+            <a href="services.html" class="quick-link">Наши услуги</a>
+            <a href="contacts.html" class="quick-link">Контакты</a>
+        </div>
+    </section>
+
+    <!-- НАШИ УСЛУГИ -->
+    <section class="services-section">
+        <div class="container">
+            <h2>Наши услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="images/services/portrait-service.jpg" alt="Портретная съемка">
+                    <h3>Портретная съемка</h3>
+                    <p class="price">3 500 ₽</p>
+                    <button class="detail-btn" onclick="location.href='services.html'">Подробнее</button>
+                </div>
+                <div class="service-card">
+                    <img src="images/services/product-service.jpg" alt="Предметная съемка">
+                    <h3>Предметная съемка</h3>
+                    <p class="price">5 000 ₽</p>
+                    <button class="detail-btn" onclick="location.href='services.html'">Подробнее</button>
+                </div>
+                <div class="service-card">
+                    <img src="images/services/event-service.png" alt="Съемка мероприятий">
+                    <h3>Съемка мероприятий</h3>
+                    <p class="price">8 000 ₽</p>
+                    <button class="detail-btn" onclick="location.href='services.html'">Подробнее</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ИНТЕРЬЕРНЫЕ СТУДИИ (ПО ЦЕНТРУ) -->
+    <section class="interior-section">
+        <div class="container">
+            <h2>Интерьерные студии</h2>
+            <div class="interior-wrapper">
+                <div class="interior-slide">
+                    <img src="images/interior/loft-studio.png" alt="Loft Studio" class="interior-img">
+                    <h3>Loft Studio</h3>
+                    <p>Просторный лофт с естественным освещением</p>
+                    <span class="price">от 1 500 ₽/час</span>
+                </div>
+                <div class="interior-slide">
+                    <img src="images/interior/white-box.png" alt="White Box" class="interior-img">
+                    <h3>White Box</h3>
+                    <p>Белая циклорама для fashion-съемок</p>
+                    <span class="price">от 2 000 ₽/час</span>
+                </div>
+                <div class="interior-slide">
+                    <img src="images/interior/minimal-grey.png" alt="Minimal Grey" class="interior-img">
+                    <h3>Minimal Grey</h3>
+                    <p>Серая студия с профессиональным светом</p>
+                    <span class="price">от 1 800 ₽/час</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <footer>
+        <div class="container">
+            <div class="footer-column">
+                <nav class="footer-nav">
+                    <a href="index.html">Главная</a>
+                    <a href="about.html">О нас</a>
+                    <a href="services.html">Услуги</a>
+                    <a href="gallery.html">Галерея</a>
+                    <a href="order.html">Заказать</a>
+                    <a href="interior.html">Интерьерные студии</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+            </div>
+            <div class="footer-column">
+                <p class="requisites">
+                    ООО "StudioKiss"<br>
+                    ИНН 7812345678<br>
+                    ОГРН 1234567890123<br>
+                    г. Санкт-Петербург, ул. Фотографов, д. 10
+                </p>
+            </div>
+            <div class="footer-column">
+                <div class="socials">
+                    <a href="#">VK</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">YouTube</a>
+                </div>
+                <p class="copyright">© 2026 StudioKiss</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
